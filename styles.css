@@ -1,0 +1,155 @@
+/* ========== RESET & BASE STYLES ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #16171b;
+  color: #efefef;
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== LAYOUT ========== */
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  width: 100%;
+  max-width: 800px;
+  background-color: #1e1f24;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ========== HEADER ========== */
+header h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e63946;
+}
+
+/* ========== ERROR MESSAGE ========== */
+#error {
+  margin-bottom: 15px;
+  color: #ff4d4d;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ========== FORM ========== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+form input[type="text"],
+#rank-select {
+  flex: 1;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #222327;
+  color: #efefef;
+  padding: 8px;
+}
+
+form input::placeholder,
+#rank-select option {
+  color: #aaa;
+}
+
+form button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #b91d1d;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form button:hover {
+  background-color: #8c1313;
+}
+
+/* ========== DROPDOWN ========== */
+#rank-select {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 15px;
+}
+
+/* ========== TABLE ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #222327;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #2d2e33;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+  color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #1b1c20;
+}
+
+/* Highlight top user */
+tbody tr:first-child {
+  background-color: #b91d1d;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #888;
+  font-size: 0.9rem;
+  padding: 10px 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+
+  form input,
+  form button {
+    width: 100%;
+  }
+
+  #rank-select {
+    max-width: 100%;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
