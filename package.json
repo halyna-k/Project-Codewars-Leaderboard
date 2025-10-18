@@ -1,0 +1,22 @@
+{
+  "name": "project-codewars-leaderboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "http-server",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halyna-k/Project-Codewars-Leaderboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/halyna-k/Project-Codewars-Leaderboard/issues"
+  },
+  "homepage": "https://github.com/halyna-k/Project-Codewars-Leaderboard#readme"
+}
