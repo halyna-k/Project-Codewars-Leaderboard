@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codewars leaderboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Compare Codewars users scores and rankings" />
+  <title>Codewars Leaderboard</title>
+  <link rel="stylesheet" href="styles.css" />
   <script src="index.mjs" type="module" defer></script>
 </head>
 <body>
+  <header>
+    <h1>Leaderboards</h1>
+  </header>
+
+  <main>
+    <div id="container">
+      <!-- Error -->
+      <div id="error" role="alert" aria-live="polite"></div>
+
+      <!-- Input with button to fetch scores -->
+      <form id="user-form">
+        <input
+          type="text"
+          id="users-input"
+          placeholder="Enter usernames (e.g. user1,user2,user3)"
+          aria-label="Usernames input"
+          required
+        />
+        <button type="submit" id="fetch-btn">Fetch Scores</button>
+      </form>
+
+      <!-- Select ranking dropdown -->
+      <select id="rank-select" aria-label="Select rank" aria-live="polite">
+        <option value="">--- Select rank ---</option>
+      </select>
+
+      <!-- Leaderboard table -->
+      <table id="leaderboard-table" border="1" aria-live="polite">
+        <thead>
+          <tr>
+            <th scope="col">Position</th>
+            <th scope="col">User</th>
+            <th scope="col">Clan</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Halyna K. All rights reserved.</p>
+  </footer>
 </body>
 </html>
