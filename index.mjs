@@ -1,3 +1,34 @@
-export function makeFetchRequest() {
-  return fetch("https://example.com/test");
+import { fetchUsers, showError, clearError, renderTable } from "./helpers.mjs";
+
+const render = () => {
+  const form = document.getElementById("user-form");
+  const input = document.getElementById("users-input");
+  const errorDiv = document.getElementById("error");
+  const tableBody = document.querySelector("#leaderboard-table tbody");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearError(errorDiv);
+
+    const usernames = input.value.split(",").map(u => u.trim()).filter(Boolean);
+    if (!usernames.length) return showError(errorDiv, "Please enter at least one username.");
+
+    try {
+      const { valid, invalid } = await fetchUsers(usernames);
+
+      if (invalid.length) {
+        const names = invalid.map(u => u.name).join(", ");
+        const userWord = invalid.length === 1 ? "User" : "Users";
+        showError(errorDiv, `${userWord} ${names} not found`);
+      }
+
+      renderTable(tableBody, valid);
+      input.value = "";
+    } catch (err) {
+      console.error(err);
+      showError(errorDiv, "Network or API error. Please try again later.");
+    }
+  });
 }
+
+document.addEventListener("DOMContentLoaded", render);
