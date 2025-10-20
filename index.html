@@ -15,9 +15,6 @@
 
   <main>
     <div id="container">
-      <!-- Error -->
-      <div id="error" role="alert" aria-live="polite"></div>
-
       <!-- Input with button to fetch scores -->
       <form id="user-form">
         <input
@@ -36,7 +33,7 @@
       </select>
 
       <!-- Leaderboard table -->
-      <table id="leaderboard-table" border="1" aria-live="polite">
+      <table id="leaderboard-table">
         <thead>
           <tr>
             <th scope="col">Position</th>
@@ -45,8 +42,16 @@
             <th scope="col">Score</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody aria-live="polite">
+          <tr>
+            <td id="empty-table" colspan="4">
+              Enter usernames above to see the leaderboard
+            </td>
+          </tr>
+        </tbody>
       </table>
+      <!-- Error -->
+      <div id="error" role="alert" aria-live="polite" hidden></div>
     </div>
   </main>
 
