@@ -18,11 +18,12 @@ export function renderTable(tableBody, users) {
     .forEach((user, index) => {
       const row = document.createElement("tr");
       row.innerHTML = `
-        <td>${index + 1}</td>
+        <td scope="row">${index + 1}</td>
         <td>${user.username}</td>
         <td>${user.clan || "-"}</td>
         <td>${user.score.toLocaleString()}</td>
       `;
+      row.setAttribute("tabindex", "0");
       tableBody.appendChild(row);
     });
 }
