@@ -1,4 +1,4 @@
-const API_BASE = "https://www.codewars.com/api/v1/users";
+export const API_BASE = "https://www.codewars.com/api/v1/users";
 
 export const showError = (el, message) => {
   el.textContent = message;
