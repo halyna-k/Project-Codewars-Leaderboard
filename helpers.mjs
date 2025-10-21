@@ -57,3 +57,44 @@ export async function fetchUsers(usernames) {
 
   return { valid, invalid };
 }
+
+export function populateRankOptions(selectEl, users) {
+  // Remove previous language options, keep the first option
+  while (selectEl.options.length > 1) selectEl.remove(1);
+
+  // Set first option as "Overall"
+  const firstOption = selectEl.options[0];
+  firstOption.textContent = "Overall";
+  firstOption.value = "overall";
+
+  // Collect unique language keys
+  const languages = new Set();
+  users.forEach(user => Object.keys(user.languages).forEach(lang => languages.add(lang)));
+
+  // Convert to sorted array
+  const sortedLanguages = [...languages].sort();
+
+  // Add languages options dynamically
+  sortedLanguages.forEach(lang => {
+    const option = document.createElement("option");
+    option.value = lang;
+    option.textContent = lang[0].toUpperCase() + lang.slice(1);
+    selectEl.appendChild(option);
+  });
+}
+
+export function handleRankChange(selectEl, tableBody, users) {
+  selectEl.addEventListener("change", () => {
+    const rank = selectEl.value;
+
+    const filteredUsers = users
+      .map(user => {
+        let score = rank === "overall" ? user.score : user.languages[rank]?.score;
+        if (score === undefined) return null;
+        return { ...user, score };
+      })
+      .filter(Boolean);
+
+    renderTable(tableBody, filteredUsers);
+  });
+}
