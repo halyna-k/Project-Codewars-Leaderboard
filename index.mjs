@@ -1,10 +1,11 @@
-import { fetchUsers, showError, clearError, renderTable } from "./helpers.mjs";
+import { fetchUsers, showError, clearError, renderTable, populateRankOptions, handleRankChange } from "./helpers.mjs";
 
 const render = () => {
   const form = document.getElementById("user-form");
   const input = document.getElementById("users-input");
   const errorDiv = document.getElementById("error");
   const tableBody = document.querySelector("#leaderboard-table tbody");
+  const rankSelect = document.querySelector("#rank-select")
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -23,6 +24,8 @@ const render = () => {
       }
 
       renderTable(tableBody, valid);
+      populateRankOptions(rankSelect, valid);
+      handleRankChange(rankSelect, tableBody, valid);
       input.value = "";
     } catch (err) {
       console.error(err);
