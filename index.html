@@ -22,13 +22,12 @@
           id="users-input"
           placeholder="Enter username(s) (e.g. user1,user2,user3)"
           aria-label="Usernames input"
-          required
         />
         <button type="submit" id="fetch-btn">Fetch Scores</button>
       </form>
 
       <!-- Select ranking dropdown -->
-      <select id="rank-select" aria-label="Select rank" aria-live="polite">
+      <select id="rank-select" aria-label="Select rank" aria-live="polite" disabled>
         <option value="" selected>Rank</option>
       </select>
 
@@ -42,14 +41,9 @@
             <th scope="col">Score</th>
           </tr>
         </thead>
-        <tbody aria-live="polite">
-          <tr>
-            <td id="empty-table" colspan="4">
-              Enter usernames above to see the leaderboard
-            </td>
-          </tr>
-        </tbody>
+        <tbody aria-live="polite"></tbody>
       </table>
+
       <!-- Error -->
       <div id="error" role="alert" aria-live="polite" hidden></div>
     </div>
