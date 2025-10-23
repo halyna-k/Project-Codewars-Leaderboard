@@ -3,9 +3,9 @@
   --bg: #121316;
   --surface: #1c1d21;
   --border: #2a2b30;
-  --text: #f1f1f1;
-  --muted: #999;
-  --accent: #d04a4a;
+  --text: #ecebeb;
+  --muted: #aaaaaa;
+  --accent: #d13f3f;
   --accent-hover: #a33c3c;
   --focus-glow: rgba(208, 74, 74, 0.4);
 }
@@ -158,7 +158,7 @@ td {
 }
 
 .top-score {
-  background: rgba(208, 74, 74, 0.15);
+  background: rgba(208, 74, 74, 0.25);
 }
 
 /* ========== FOOTER ========== */
