@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/halyna-k/Project-Codewars-Leaderboard/issues"
   },
-  "homepage": "https://github.com/halyna-k/Project-Codewars-Leaderboard#readme"
+  "homepage": "https://github.com/halyna-k/Project-Codewars-Leaderboard#readme",
+  "devDependencies": {
+    "nock": "^14.0.10"
+  }
 }
